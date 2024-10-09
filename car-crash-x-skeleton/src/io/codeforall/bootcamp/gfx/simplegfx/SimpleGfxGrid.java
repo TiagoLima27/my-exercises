@@ -1,29 +1,23 @@
 package io.codeforall.bootcamp.gfx.simplegfx;
 
-import io.codeforall.bootcamp.gfx.lanterna.LanternaGridPosition;
 import io.codeforall.bootcamp.grid.Grid;
 import io.codeforall.bootcamp.grid.position.GridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
-import java.awt.*;
 
 public class SimpleGfxGrid implements Grid {
 
-    public static final int PADDING = 10;
-
-    private final int cellSize = 20;
     private final int cols;
     private final int rows;
-    private int col;
+    private final int cellSize;
+    private Rectangle rectangle;
 
-    private int row;
-
+    public static final int PADDING = 10;
 
     public SimpleGfxGrid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
-
-
+        this.cellSize = 20;
     }
 
     /**
@@ -31,8 +25,8 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public void init() {
-        Rectangle rectangle = new Rectangle(getX(), getY(), getWidth(), getHeight());
-        rectangle.draw();
+        this.rectangle = new Rectangle(PADDING, PADDING, cols * this.cellSize, rows * this.cellSize);
+        this.rectangle.draw();
     }
 
     /**
@@ -40,7 +34,7 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public int getCols() {
-        return cols;
+        return this.cols;
     }
 
     /**
@@ -48,7 +42,7 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public int getRows() {
-        return rows;
+        return this.rows;
     }
 
     /**
@@ -57,7 +51,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the width of the grid
      */
     public int getWidth() {
-        return cols * cellSize;
+        return this.rectangle.getWidth();
     }
 
     /**
@@ -66,7 +60,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the height of the grid
      */
     public int getHeight() {
-        return rows * cellSize;
+        return this.rectangle.getHeight();
     }
 
     /**
@@ -75,8 +69,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the x position of the grid
      */
     public int getX() {
-
-        return columnToX(col);
+        return this.PADDING;
     }
 
     /**
@@ -85,8 +78,7 @@ public class SimpleGfxGrid implements Grid {
      * @return the y position of the grid
      */
     public int getY() {
-
-        return rowToY(row);
+        return this.PADDING;
     }
 
     /**
@@ -95,8 +87,7 @@ public class SimpleGfxGrid implements Grid {
      * @return
      */
     public int getCellSize() {
-
-        return cellSize;
+        return this.cellSize;
     }
 
     /**
@@ -104,7 +95,6 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public GridPosition makeGridPosition() {
-
         return new SimpleGfxGridPosition(this);
     }
 
@@ -113,8 +103,6 @@ public class SimpleGfxGrid implements Grid {
      */
     @Override
     public GridPosition makeGridPosition(int col, int row) {
-        this.col = col;
-        this.row = row;
         return new SimpleGfxGridPosition(col, row, this);
     }
 
@@ -125,8 +113,7 @@ public class SimpleGfxGrid implements Grid {
      * @return y pixel value
      */
     public int rowToY(int row) {
-        int y = row * cellSize + PADDING;
-        return y;
+        return row * this.cellSize + PADDING;
     }
 
     /**
@@ -136,7 +123,6 @@ public class SimpleGfxGrid implements Grid {
      * @return x pixel value
      */
     public int columnToX(int column) {
-        int x = column * cellSize + PADDING;
-        return x;
+        return column * this.cellSize + PADDING;
     }
 }
