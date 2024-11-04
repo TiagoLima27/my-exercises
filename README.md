@@ -20,7 +20,7 @@ Clone the repository to your local machine:
 
 
 Navigate to the desired exercise folder:
-- cd my-exercises>
+- cd my-exercises
 
 
 Open the project in your preferred code editor and voilà, you can learn from my code, use it or improve it!
