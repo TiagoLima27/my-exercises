@@ -1,0 +1,189 @@
+/* Reset margins and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background styling for the body */
+body {
+    /* Gradient overlay with a background image */
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.692), rgba(34, 33, 33, 0.7)), url('resources/Untitled design.png');
+    /* Ensures background image covers entire screen */
+    background-size: cover;
+    /* Fixes background when scrolling */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    /* Centers the card horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.alert alert-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+
+/* Styles for the main profile card container */
+.profile-card {
+    background: rgba(255, 255, 255, 0.014); /* Transparent background */
+    backdrop-filter: blur(10px); /* Blurs the area behind the card */
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px; /* Rounds the corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.392); /* Adds a shadow for depth */
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in effect */
+}
+
+/* Styling for the profile image */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 3px solid white; /* White border around the image */
+    margin-top: -60px; /* Moves image up to overlap the card */
+    margin-bottom: 15px;
+}
+
+/* Styling for main heading */
+.title {
+    color: #f8c006; /* Bright yellow color */
+    font-size: 40px;
+    margin-bottom: 5px;
+    
+}
+
+
+.header {
+    color: #faaf0d;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 300; /* Lighter font weight */
+     /* Softer yellow color */
+}
+
+/* Styling for description text */
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5; /* Improves readability */
+    color: #ddd;
+}
+
+.date {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #8c8c8ca9;
+}
+
+.summary {  
+    color: #ffc400;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 300; /* Lighter font weight */
+  
+}
+
+.description {
+    color: #faaf0d;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 300; /* Lighter font weight */
+     /* Softer yellow color */
+}
+
+.btn-toggle {
+    background-color: #ffc400; /* Green background */
+    color: rgb(0, 0, 0); /* White text */
+    font-weight: bold;
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for the button */
+.btn-toggle:hover {
+    background-color: #d39000; /* Slightly darker green */
+    color: #f8f8f8; /* Slightly lighter text */
+}
+
+/* Hide the summary section by default */
+#summary-section {
+    display: none;
+}
+
+/* Container for social icons, centers them horizontally */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+}
+
+.project-link {
+    color: #ffc400; /* Green link color */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Makes the text bold */
+}
+
+.project-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #d39000; /* Slightly darker green on hover */
+    text-decoration: none; /* Removes underline */
+}
+
+/* Styling for each social icon */
+.social-icons a {
+    text-decoration: none; /* Removes underline from links */
+    color: #ffc400; /* Icon color */
+    font-size: 24px;
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+/* Enlarges icon on hover */
+.social-icons a:hover {
+    color: #ffc400;
+    transform: scale(1.2);
+}
+
+/* Styling for the "Contact Me" button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ffdb58; /* Yellow border */
+    border-radius: 20px; /* Rounded button */
+    color: #ffc400;
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;
+    transition: all 0.3s ease; /* Smooth color transition */
+    margin-top: 10px;
+}
+
+/* Button background changes on hover */
+.btn:hover {
+    background: #ffc400;
+    color: #333;
+}
+
+/* Keyframes for fade-in animation of the card */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); } /* Starts off-screen */
+    to { opacity: 1; transform: translateY(0); } /* Ends in place */
+}
+
+/* Media query for responsiveness on small screens */
+@media (max-width: 500px) {
+    h1 { font-size: 20px; }
+    h3 { font-size: 16px; }
+    p { font-size: 14px; }
+}
