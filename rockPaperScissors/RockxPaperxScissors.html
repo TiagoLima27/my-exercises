@@ -83,7 +83,7 @@
     </div>
 
     <script>
-        // Choices array
+        
         const choices = ["Rock", "Paper", "Scissors"];
         const images = {
             Rock: "./resources/rock.svg",
@@ -91,11 +91,11 @@
             Scissors: "./resources/scissors.svg"
         };
 
-        // Scores
+        
         let player1Score = 0;
         let player2Score = 0;
 
-        // DOM elements
+        
         const player1Image = document.getElementById("player1-image");
         const player1ChoiceText = document.getElementById("player1-choice");
         const player1ScoreText = document.getElementById("player1-score");
@@ -106,13 +106,13 @@
 
         const playButton = document.getElementById("play-button");
 
-        // Function to get a random choice
+        
         function getRandomChoice() {
             const index = Math.floor(Math.random() * choices.length);
             return choices[index];
         }
 
-        // Function to determine the winner
+        
         function getWinner(choice1, choice2) {
             if (choice1 === choice2) return "draw";
             if (
@@ -125,24 +125,24 @@
             return "player2";
         }
 
-        // Play a round
+       
         playButton.addEventListener("click", () => {
-            // Get random choices
+            
             const player1Choice = getRandomChoice();
             const player2Choice = getRandomChoice();
 
-            // Update images
+            
             player1Image.src = images[player1Choice];
             player2Image.src = images[player2Choice];
 
-            // Update text
+            
             player1ChoiceText.textContent = `Choice: ${player1Choice}`;
             player2ChoiceText.textContent = `Choice: ${player2Choice}`;
 
-            // Determine winner
+            
             const winner = getWinner(player1Choice, player2Choice);
 
-            // Update scores
+            
             if (winner === "player1") {
                 player1Score++;
                 player1ScoreText.textContent = player1Score;
