@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: yellow;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            border: 2px solid yellow;
+            display: inline-block;
+            padding: 10px;
+        }
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-direction: column;
+        }
+        .color-display {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid yellow;
+            display: inline-block;
+            background-color: black;
+        }
+        .play-round {
+            margin-top: 30px;
+        }
+        .play-round button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            background-color: yellow;
+            border: none;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .play-round button:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Color Generator</h1>
+    <div class="game-container">
+        <div id="color-display" class="color-display">Click the button to generate a color!</div>
+    </div>
+    <div class="play-round">
+        <button id="play-button">Random Color</button>
+    </div>
+
+    <script>
+        const playButton = document.getElementById("play-button");
+        const colorDisplay = document.getElementById("color-display");
+
+        function generateRandomColor() {
+            const letters = '0123456789ABCDEF'; 
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        playButton.addEventListener("click", () => {
+            const newColor = generateRandomColor();
+            colorDisplay.textContent = `Color: ${newColor}`;
+            document.body.style.backgroundColor = newColor;
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
